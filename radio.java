@@ -9,6 +9,15 @@ import java.util.Scanner;
 
 public interface Radio{
 
+     //Propiedades
+    Boolean isOn = false;
+    String  modo_actual = "AM";
+    ArrayList<Float> station = new ArrayList<>();
+    Random rnd = new Random();
+    Scanner sc = new Scanner(System.in);
+    
+
+
     public void turnOnOff();
     /**
      * Move forward into the station dial.
@@ -31,17 +40,8 @@ public interface Radio{
      * Get the current frequency.
      * @return boolean indicating if it is AM or FM. true = AM.
      */
-    public boolean getFrequency();
-    /**
-     * Switch the frequency selected.
-     */
 
     @Override
-    public void nextStation() {//Metodo para cambiar la emisora del radio.
-        this.emisora_actual += 0.5f;
-        System.out.println("Se ha cambiado a la emisora " + this.emisora_actual);
-    }
-
     public void nextStation() {//Metodo para cambiar la emisora del radio.
         this.emisora_actual += 0.5f;
         System.out.println("Se ha cambiado a la emisora " + this.emisora_actual);
