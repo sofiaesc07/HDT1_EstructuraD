@@ -69,7 +69,7 @@ public class RControlador implements Radio{
 		}
 	}
 	
-	public boolean obtenerPoder() {
+	public boolean isOn() {
 		return isOn;
 	}
 
@@ -78,9 +78,10 @@ public class RControlador implements Radio{
 		emisoras.set(position, station);
 	}
 
-	public String getSavedStation(int position) {
+	public String getSavedStation() {
 		// TODO Auto-generated method stub
-		String cadena = "Listado de emisoras guardadas:\n=====================================================\n\n";
+		int position = 0;
+        String cadena = "Listado de emisoras guardadas:\n=====================================================\n\n";
 		for(double em:emisoras) {
 			position+=1;
 			if(em == 0){
@@ -95,13 +96,13 @@ public class RControlador implements Radio{
 		return cadena;
 	}
 	
-	public String seleccionar_guardada(int posicion) {
+	public String getSavedStation(int position) {
 		// TODO Auto-generated method stub
 		String cadena = "Reproduciendo ";
-		if(emisoras.get(posicion) == 0) {
+		if(emisoras.get(position) == 0) {
 			cadena = "Parece que no tienes una emisora en ese espacio.";
 		}else {
-			getStation = emisoras.get(posicion);
+			getStation = emisoras.get(position);
 			String f = "";
 			if(getStation-(int)getStation==0) {
 				frecuencia = "AM";

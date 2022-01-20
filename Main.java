@@ -51,7 +51,7 @@ public class Main {
         		System.out.println("Presione enter para continuar...");
         		sc.nextLine();
             }else if(sel==2) {
-            	if(radio.obtenerPoder()) {
+            	if(radio.isOn()) {
             		inter.switchAMFM();
             	}else {
             		System.out.println("Radio apagada");
@@ -59,7 +59,7 @@ public class Main {
             	System.out.println("Presione enter para continuar...");
         		sc.nextLine();
             }else if(sel==3) {
-            	if(radio.obtenerPoder()) {
+            	if(radio.isOn()) {
             		boolean escoger = true;
                 	while(escoger) {
 	            		System.out.print("Elija para donde quiere ir (1. Adelante / 0. Atras): ");
@@ -81,7 +81,7 @@ public class Main {
             	System.out.println("Presione enter para continuar...");
         		sc.nextLine();
             }else if(sel==4) {
-            	if(radio.obtenerPoder()) {
+            	if(radio.isOn()) {
             		
                     System.out.print("Elija que frecuencia es (1. AM / 0. FM): ");
                     String cam = sc.nextLine();
@@ -126,7 +126,7 @@ public class Main {
             	System.out.println("Presione enter para continuar...");
         		sc.nextLine();
             }else if(sel==5) {
-            	if(radio.obtenerPoder()) {
+            	if(radio.isOn()) {
                     System.out.println(radio.getSavedStation(sel));
             		System.out.print("Ingrese el numero de emisora que desea reproducir: ");
                     int po = sc.nextInt();
@@ -137,7 +137,7 @@ public class Main {
 	                    po = sc.nextInt();
 	                    sc.nextLine();
              		}
-                    System.out.println(radio.seleccionar_guardada(po));
+                    System.out.println(radio.getSavedStation(po));
             	}else {
             		System.out.println("Radio apagada");
             	}
