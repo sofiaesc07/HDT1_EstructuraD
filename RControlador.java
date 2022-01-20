@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * @author Sofia Escobar
+ * @author grupo4
  *
  */
 public class RControlador implements Radio{
@@ -56,6 +56,28 @@ public class RControlador implements Radio{
 		cadena = cadena + getStation + " " + frecuencia + "...";
 		return cadena;
 	}
+		public String prevStation(boolean frequency) {
+		// TODO Auto-generated method stub
+		String cadena = "Reproduciendo ";
+		double posicion = getStation;
+		if(frecuencia == "AM") {
+			if(frequency) {
+				posicion = (posicion == 1610)?530:posicion +10;
+			}else {
+				posicion = (posicion == 530)?1610:posicion -10;
+			}
+		}else {
+			if(frequency) {
+				posicion = (posicion == 107.9)?87.9:posicion +0.2;
+			}else {
+				posicion = (posicion == 87.9)?107.9:posicion -0.2;
+			}
+			posicion = Math.round(posicion*100.0)/100.0;
+		}
+		getStation = posicion;
+		cadena = cadena + getStation + " " + frecuencia + "...";
+		return cadena;
+	}
 
 	@Override
 	public void switchAMFM() {
@@ -77,6 +99,7 @@ public class RControlador implements Radio{
 		// TODO Auto-generated method stub
 		emisoras.set(position, station);
 	}
+
 
 	public String getSavedStation() {
 		// TODO Auto-generated method stub
