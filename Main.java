@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * @author Ana Sofía Escobar
+ * @author grupo4
  *
  */
 public class Main {
