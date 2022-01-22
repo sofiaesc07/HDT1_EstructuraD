@@ -65,9 +65,9 @@ public class Main {
 	            		System.out.print("Elija para donde quiere ir (1. Adelante / 0. Atras): ");
 	                    String cam = sc.nextLine();
 	                    if(cam.equals("1")) {
-	                    	System.out.println(radio.nextStation(true));
+	                    	radio.nextStation(true);
 	                    }else {
-	                    	System.out.println(radio.nextStation(false));
+	                    	radio.prevStation(false);
 	                    }
 	                    System.out.print("�Desea cambiar otra vez de emisora?(1. Si / 0. No): ");
 	                    String ch = sc.nextLine();

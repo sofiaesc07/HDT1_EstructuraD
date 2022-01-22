@@ -4,6 +4,7 @@ import java.util.ArrayList;
  * @author grupo4
  *
  */
+
 public class RControlador implements Radio{
 	
 	private boolean isOn;
@@ -34,49 +35,40 @@ public class RControlador implements Radio{
 		isOn = !isOn;
 	}
 
-	public String nextStation(boolean frequency) {
+	public void nextStation(boolean frequency) {
 		// TODO Auto-generated method stub
 		String cadena = "Reproduciendo ";
 		double posicion = getStation;
 		if(frecuencia == "AM") {
 			if(frequency) {
 				posicion = (posicion == 1610)?530:posicion +10;
-			}else {
-				posicion = (posicion == 530)?1610:posicion -10;
-			}
 		}else {
 			if(frequency) {
 				posicion = (posicion == 107.9)?87.9:posicion +0.2;
-			}else {
-				posicion = (posicion == 87.9)?107.9:posicion -0.2;
-			}
 			posicion = Math.round(posicion*100.0)/100.0;
-		}
+			}
 		getStation = posicion;
 		cadena = cadena + getStation + " " + frecuencia + "...";
-		return cadena;
+			}
+		}
 	}
-		public String prevStation(boolean frequency) {
+		public void prevStation(boolean frequency) {
 		// TODO Auto-generated method stub
 		String cadena = "Reproduciendo ";
 		double posicion = getStation;
+		String mensaje;
 		if(frecuencia == "AM") {
 			if(frequency) {
-				posicion = (posicion == 1610)?530:posicion +10;
-			}else {
 				posicion = (posicion == 530)?1610:posicion -10;
-			}
 		}else {
 			if(frequency) {
-				posicion = (posicion == 107.9)?87.9:posicion +0.2;
-			}else {
 				posicion = (posicion == 87.9)?107.9:posicion -0.2;
 			}
 			posicion = Math.round(posicion*100.0)/100.0;
 		}
 		getStation = posicion;
 		cadena = cadena + getStation + " " + frecuencia + "...";
-		return cadena;
+	}
 	}
 
 	@Override
@@ -119,22 +111,9 @@ public class RControlador implements Radio{
 		return cadena;
 	}
 	
-	public String getSavedStation(int position) {
-		// TODO Auto-generated method stub
-		String cadena = "Reproduciendo ";
-		if(emisoras.get(position) == 0) {
-			cadena = "Parece que no tienes una emisora en ese espacio.";
-		}else {
-			getStation = emisoras.get(position);
-			String f = "";
-			if(getStation-(int)getStation==0) {
-				frecuencia = "AM";
-			}else {
-				frecuencia = "FM";
-			}
-			cadena = cadena + getStation + " " + frecuencia + "... ";
-		}
-		return cadena;
+	@Override
+	public double getSavedStation(int position) {
+		return 0;
 	}
 	
 	public String mostrarEstado() {
@@ -152,5 +131,23 @@ public class RControlador implements Radio{
 	public String toString() {
 		return "RadioController [power=" + isOn + ", frecuencia=" + frecuencia + ", emisora_seleccionada="
 				+ getStation + ", emisoras=" + emisoras + "]";
+	}
+
+	@Override
+	public boolean getFrequency() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double getStation() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void saveStation(int position, double station) {
+		// TODO Auto-generated method stub
+		
 	}
 }
