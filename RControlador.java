@@ -28,7 +28,6 @@ public class RControlador implements Radio{
 		}
 	}
 
-	@Override
 	public void turnOnOff() {
 		// TODO Auto-generated method stub
 		isOn = !isOn;
@@ -79,7 +78,7 @@ public class RControlador implements Radio{
 		return cadena;
 	}
 
-	@Override
+	
 	public void switchAMFM() {
 		// TODO Auto-generated method stub
 		if(frecuencia == "AM") {
