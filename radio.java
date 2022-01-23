@@ -1,6 +1,7 @@
 
 public interface Radio{
     
+    //CLASES DE LA INTERFAZ
     public boolean isOn();
     
     public void turnOnOff();

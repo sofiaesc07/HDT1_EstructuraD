@@ -18,7 +18,7 @@ public class Main {
 		
 		boolean menu = true;
 
-        while(menu) {
+        while(menu) {//MENU 
         	
         	System.out.println("");
         	System.out.println("+----------------------------------+");
